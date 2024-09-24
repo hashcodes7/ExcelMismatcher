@@ -69,7 +69,10 @@ if xlfile1 and xlfile2:
             row_df2 = df2.iloc[[ind2]].copy()
             row_df2['source'] = xlfile2.name
             onlyonefiledataframe = add_row_to_dataframe(onlyonefiledataframe, row_df2)
-        onlyonefiledataframe=onlyonefiledataframe[[UniqueRow,'source']+[c for c in df2 if c !=[UniqueRow,'source']]]
+        if onlyonefiledataframe is not None:
+            onlyonefiledataframe = onlyonefiledataframe[[UniqueRow, 'source'] + [c for c in df2.columns if c not in [UniqueRow, 'source']]]
+        else:
+            raise ValueError("onlyonefiledataframe is None after processing")
 
 
         #the next program creates second sheet for checking values which are different, but having same unique identifier

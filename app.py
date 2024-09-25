@@ -53,6 +53,7 @@ if xlfile1 and xlfile2:
         unique_elements = set1.symmetric_difference(set2)
         unique_from_list1 = unique_elements.intersection(set1)
         unique_from_list2 = unique_elements.intersection(set2)
+        print(unique_from_list1,unique_from_list2)
         onlyonefiledataframe=None
         for uniques1 in unique_from_list1:
             ind1=uid1list.index(uniques1)
